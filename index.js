@@ -48,6 +48,7 @@ module.exports = {
         var acl           = this.readConfig('acl');
         var prefix        = this.readConfig('prefix');
         var manifestPath  = this.readConfig('manifestPath');
+        var cacheControl  = this.readConfig('cacheControl');
 
         var filesToUpload = distFiles.filter(minimatch.filter(filePattern, { matchBase: true }));
 
@@ -62,7 +63,8 @@ module.exports = {
           prefix: prefix,
           bucket: bucket,
           acl: acl,
-          manifestPath: manifestPath
+          manifestPath: manifestPath,
+          cacheControl: cacheControl
         };
 
         this.log('preparing to upload to S3 bucket `' + bucket + '`', { verbose: true });
